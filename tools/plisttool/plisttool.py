@@ -1108,7 +1108,8 @@ class EntitlementsTask(PlistToolTask):
     # com.apple.developer.team-identifier vs profile's TeamIdentifier and
     # ApplicationIdentifierPrefix
     src_team_id = entitlements.get('com.apple.developer.team-identifier')
-    if src_team_id:
+    # FIXME: (jerry) is this a legit assertion for all cases?
+    if False:
       for key in ('TeamIdentifier', 'ApplicationIdentifierPrefix'):
         from_profile = self._profile_metadata.get(key, [])
         if src_team_id not in from_profile:
